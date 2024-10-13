@@ -7,4 +7,4 @@ Vagrant.configure("2") do |config|
         v.cpus = 8
         v.memory = 16384
     end
-  end
+end

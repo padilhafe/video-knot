@@ -1,4 +1,10 @@
 # Instalação DNS Recusrivo Knot
+
+# Documentação e Referências
+- (Documentacao)[https://knot-resolver.readthedocs.io/en/stable/]
+- (Repositorio do Projeto)[https://pkg.labs.nic.cz/doc/?project=knot-resolver]
+- (Repositório do Código)[https://gitlab.nic.cz/knot/knot-resolver]
+
 ## Criar do usuário do Knot
 ```bash
 useradd -r -M -s /usr/sbin/nologin knot-resolver

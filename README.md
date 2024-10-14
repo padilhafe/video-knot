@@ -16,7 +16,7 @@ useradd -r -M -s /usr/sbin/nologin knot-resolver
 ```
 ## Criar entrada tmpfs no fstab
 ```bash
-echo "tmpfs /var/cache/knot-resolver tmpfs rw,size=11636M,uid=knot-resolver,gid=knot-resolver,nosuid,nodev,noexec,mode=0700 0 0" | tee -a /etc/fstab
+echo "tmpfs /var/cache/knot-resolver tmpfs rw,size=14336M,uid=knot-resolver,gid=knot-resolver,nosuid,nodev,noexec,mode=0700 0 0" | tee -a /etc/fstab
 mkdir /var/cache/knot-resolver
 mount -a
 ```
@@ -27,7 +27,7 @@ systemctl stop systemd-resolved
 systemctl disable systemd-resolved
 rm /etc/resolv.conf
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
-echo "nameserver 8.8.4.4" > /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 ```
 
 ## Instalaçãao do repositório do Knot
@@ -56,6 +56,7 @@ nano /etc/knot-resolver/kresd.conf
 ```
 
 ## Habilitar e iniciar os serviços
+- Usar o valor {1..x}, no qual X é o total de núcleos da máquina menos 1.
 ```bash
 systemctl enable kresd@{1..7}
 systemctl start kresd@{1..7}
